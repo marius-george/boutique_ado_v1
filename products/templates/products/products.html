@@ -26,11 +26,11 @@
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                             <div class="card h-100 border-0">
                                 {% if product.image %}
-                                <a href="">
+                                <a href="{% url 'product_detail' product.id %}">
                                     <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                                 </a>
                                 {% else %}
-                                <a href="">
+                                <a href="{% url 'product_detail' product.id %}">
                                     <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                 </a>
                                 {% endif %}
@@ -52,42 +52,23 @@
                             </div>
                         </div>
                         {% if forloop.counter|divisibleby:1 %}
-                            <!-- Check if the current iteration count of the loop is divisible by 1 -->
-                            <!-- This condition will always be true because any number is divisible by 1 -->
                             <div class="col-12 d-sm-none mb-5">
-                                <!-- This div is displayed on all screen sizes (col-12) but hidden on small screens (d-sm-none) -->
                                 <hr>
-                                <!-- Horizontal line -->
                             </div>
-                        {% endif %}
-
+                        {% endif %}                        
                         {% if forloop.counter|divisibleby:2 %}
-                            <!-- Check if the current iteration count of the loop is divisible by 2 -->
-                            <!-- This condition is true for every second iteration -->
                             <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                                <!-- This div is hidden on extra small and large screens, but displayed on small and medium screens -->
                                 <hr>
-                                <!-- Horizontal line -->
                             </div>
                         {% endif %}
-
                         {% if forloop.counter|divisibleby:3 %}
-                            <!-- Check if the current iteration count of the loop is divisible by 3 -->
-                            <!-- This condition is true for every third iteration -->
                             <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                                <!-- This div is hidden on large and extra-large screens, but displayed on medium screens -->
                                 <hr>
-                                <!-- Horizontal line -->
                             </div>
                         {% endif %}
-
                         {% if forloop.counter|divisibleby:4 %}
-                            <!-- Check if the current iteration count of the loop is divisible by 4 -->
-                            <!-- This condition is true for every fourth iteration -->
                             <div class="col-12 d-none d-xl-block mb-5">
-                                <!-- This div is hidden on extra-large screens, but displayed on all other screen sizes -->
                                 <hr>
-                                <!-- Horizontal line -->
                             </div>
                         {% endif %}
                     {% endfor %}
